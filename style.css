@@ -1,6 +1,31 @@
 body {
-  font-family: sans-serif;
-  padding: 20px;
+    font-family: sans-serif;
+    padding: 20px;
+    font-size: large;
+    color: darkslategrey;
+}
+
+header {
+    background-color: blanchedalmond;
+    padding: 30px 20px;
+    margin: -30px -30px 20px -30px;
+    text-align: center;
+}
+
+.uploadSection {
+    text-align: center;
+    font-size: 2vmax;
+    padding: 20px;
+}
+
+#pdfInput::file-selector-button {
+    padding: 12px 24px;
+    font-size: 1.2em;
+    border: darkslategray;
+    border-radius: 6px;
+    background-color: blanchedalmond;
+    color: darkslategrey;
+    cursor: pointer
 }
 
 #pdfFrame {
