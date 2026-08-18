@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pdf Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>PFD Viewer</h2>
+
+    <label for="pdfInput">Select a PDF file</label>
+    <input 
+        type="file"
+        id="pdfInput"
+        name="pdfInput"
+        accept=".pdf">
+
+     <iframe id="pdfFrame" style="display:none;"></iframe>
+
+    <script src="./script.js"></script>
+</body>
+</html>
