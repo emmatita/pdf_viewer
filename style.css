@@ -3,23 +3,21 @@ body {
     padding: 20px;
     font-size: large;
     color: darkslategrey;
+    text-align: center;
 }
 
 header {
     background-color: blanchedalmond;
     padding: 30px 20px;
     margin: -30px -30px 20px -30px;
-    text-align: center;
 }
 
 .uploadSection {
-    text-align: center;
     font-size: 30px;
     padding: 20px;
 }
 
 #fileName {
-  text-align: center;
   margin-top: 0.9em;
   color: darkslategray;
 }
