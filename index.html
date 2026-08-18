@@ -13,12 +13,10 @@
     </header>
 
     <div class="uploadSection">
-        <label for="pdfInput">Select a PDF file</label><br>
-        <input 
-            type="file"
-            id="pdfInput"
-            name="pdfInput"
-            accept=".pdf">
+        <label for="pdfInput" class="uploadBtn">Choose a PDF</label>
+        <input type="file" id="pdfInput" accept="application/pdf" hidden>
+        <p id="fileName">No file chosen</p>
+        <button id="clearBtn" style="display:none;">Clear</button>
     </div>
    
 
