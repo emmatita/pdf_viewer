@@ -38,6 +38,7 @@ A web app that lets you upload a PDF, view it in the browser and get an AI gener
 4. The extracted text is sent to a Node/Express backend
 5. The backend forwards the text to OpenAI's API with a summarization prompt
 6. The summary is returned to the frontend and displayed below the PDF
+
 -- The API key is never exposed to the browser as all AI calls happen server-side --
 
 
