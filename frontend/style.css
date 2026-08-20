@@ -17,11 +17,6 @@ header {
     padding: 20px;
 }
 
-#fileName {
-  margin-top: 0.9em;
-  color: darkslategray;
-}
-
 .uploadBtn {
     background-color: blanchedalmond;
     padding: 12px 24px;

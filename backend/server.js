@@ -8,14 +8,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Server status check
 app.get('/', (req, res) => {
     res.send('Backend is running!');
 });
 
+// Starts server on port 3000
 app.listen(3000, () => {
     console.log('Server listening on http://localhost:3000');
 });
 
+// Receives text from front end and sends it back summarized by AI as a .json
 app.post('/summarize', async (req, res) => {
     const { text } = req.body;
 

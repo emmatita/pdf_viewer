@@ -1,9 +1,10 @@
-const input = document.getElementById('pdfInput');
-const frame = document.getElementById('pdfFrame');
 const clearBtn = document.getElementById('clearBtn');
 const fileNameLabel = document.getElementById('fileName');
+const frame = document.getElementById('pdfFrame');
+const input = document.getElementById('pdfInput');
 const summaryDiv = document.getElementById('summaryOutput');
 
+// is called everytime file changes
 input.addEventListener('change', async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -21,6 +22,7 @@ input.addEventListener('change', async (event) => {
     clearBtn.style.display = 'inline-block'; 
 });
 
+// What happens when clear button is clicked (file is cleared)
 clearBtn.addEventListener('click', () => {
     input.value = '';
     frame.src = '';
@@ -30,6 +32,7 @@ clearBtn.addEventListener('click', () => {
     summaryDiv.textContent = 'No content yet'
 });
 
+// PDF text extraction function
 async function extractText(file) {
     const arrayBuffer = await file.arrayBuffer();
     const pdf = await pdfjsLib.getDocument(arrayBuffer).promise;
@@ -45,6 +48,7 @@ async function extractText(file) {
     return fullText;
 }
 
+// function to get in touch with backend and get the summary
 async function getSummary(text) {
     const response = await fetch('http://localhost:3000/summarize', {
         method: 'POST',
