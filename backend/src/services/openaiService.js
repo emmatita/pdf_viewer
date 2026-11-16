@@ -1,15 +1,20 @@
 
 export async function generateSummary(text) {
 
-    /* if (!text) {
+    const apiKey = process.env.OPENAI_API_KEY;
+
+    if (!apiKey) {
+        throw new Error("OpenAI API key is not configured.");
+    }
+
+    if (!text) {
         return res.status(400).json({ error: 'No text provided' });
     }
 
-    try {
-        const response = await fetch('https://api.openai.com/v1/responses', {
+    const response = await fetch('https://api.openai.com/v1/responses', {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
+                'Authorization': `Bearer ${apiKey}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
@@ -18,22 +23,21 @@ export async function generateSummary(text) {
             })
         });
 
-        const data = await response.json();
+    const data = await response.json();
 
-        if (!response.ok) {
-            return res.status(response.status).json({ error: data.error?.message || 'OpenAI API error' });
-        }
+    if (!response.ok) {
+        console.error("OpenAI API error:", data.error?.message);
+        throw new Error("Failed to generate summary.");
+    }
 
-        const summary = data.output[0].content[0].text;
+    const summary = data.output
+        ?.flatMap(item => item.content ?? [])
+        .find(item => item.type === "text_output")
+        ?.text;
 
-        res.json({ summary });
-
-    } 
-    catch (error) {
-    res.status(500).json({ error: 'Failed to generate summary' });
-    } */
-
-    const summary = "";
-
+    if (!summary) {
+        throw new Error("No summary was returned by OpenAI.");
+    }
+    
     return summary;
 }
