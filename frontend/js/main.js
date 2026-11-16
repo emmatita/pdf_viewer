@@ -3,6 +3,10 @@ const fileNameLabel = document.getElementById('fileName');
 const frame = document.getElementById('pdfFrame');
 const input = document.getElementById('pdfInput');
 const summaryDiv = document.getElementById('summaryOutput');
+const pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
 // is called everytime file changes
 input.addEventListener('change', async (event) => {

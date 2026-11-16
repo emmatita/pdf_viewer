@@ -1,4 +1,4 @@
-import { generateSummary } from '../services/openaiService';
+import { generateSummary } from '../services/openaiService.js';
 
 export async function summarize(req, res) {
 
