@@ -24,7 +24,7 @@ export async function summarize(req, res) {
     catch (error) {
         console.error("Summary generation failed:", error.message);
 
-        return res.status(502).json({ errror: "Unable to generate the summary. Please try again." });
+        return res.status(502).json({ error: "Unable to generate the summary. Please try again." });
     }
 
 }

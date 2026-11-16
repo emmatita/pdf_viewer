@@ -7,8 +7,8 @@ export async function generateSummary(text) {
         throw new Error("OpenAI API key is not configured.");
     }
 
-    if (!text) {
-        return res.status(400).json({ error: 'No text provided' });
+    if (!text || !text.trim()) {
+    throw new Error("No text provided.");
     }
 
     const response = await fetch('https://api.openai.com/v1/responses', {
@@ -32,7 +32,7 @@ export async function generateSummary(text) {
 
     const summary = data.output
         ?.flatMap(item => item.content ?? [])
-        .find(item => item.type === "text_output")
+        .find(item => item.type === "output_text")
         ?.text;
 
     if (!summary) {
