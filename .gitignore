@@ -1,5 +1,8 @@
 # Dependencies
+backend/node_modules/.bin
+backend/node_modules/
 node_modules/
+node_modules/.bin
 
 # Environment variables
 .env
