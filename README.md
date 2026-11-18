@@ -80,7 +80,9 @@ integration of external AI APIs.
 
 5. Start the application:
 
-   npm start
+   npm run dev
+
+6. Open the frontend index.html file with a live server like in VS Code
 
 ## 🧠 Technical Challenges & Solutions
 
