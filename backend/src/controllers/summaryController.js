@@ -1,6 +1,6 @@
 import { generateSummary } from '../services/openaiService.js';
 
-export async function summarize(req, res) {
+export async function summarize(req, res, next) {
 
     const { text } = req.body ?? {};
 
@@ -22,9 +22,7 @@ export async function summarize(req, res) {
         return res.status(200).json({ summary });
     }
     catch (error) {
-        console.error("Summary generation failed:", error.message);
-
-        return res.status(502).json({ error: "Unable to generate the summary. Please try again." });
+        next(error);
     }
 
 }

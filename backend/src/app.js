@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import summaryRoutes from "./routes/summaryRoutes.js";
+import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
 
@@ -12,5 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.use("/", summaryRoutes);
+
+app.use(errorHandler);
 
 export default app;
