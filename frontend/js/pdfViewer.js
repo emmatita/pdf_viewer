@@ -22,9 +22,3 @@ export function clearPDF() {
         fileURL = null;
     }
 }
-
-clearBtn.addEventListener('click', () => {
-    input.value = '';
-    clearBtn.style.display = 'none';
-    summaryDiv.textContent = 'No content yet'
-});
