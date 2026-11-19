@@ -25,6 +25,7 @@ integration of external AI APIs.
 - AI-powered document summarization
 - Backend API integration
 - Server-side API key management
+- Error Handling
 
 ## 🖥️ Screenshots
 
