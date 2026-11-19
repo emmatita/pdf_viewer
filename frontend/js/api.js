@@ -1,16 +1,27 @@
 
 export async function getSummary(text) {
-    const response = await fetch('http://localhost:3000/summarize', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text })
-    });
-
-    const data = await response.json();
-
-    if (!data.summary) {
-        return 'Something went wrong generating the summary. Please try again.';
-    }
+    try {
+        const response = await fetch('http://localhost:3000/summarize', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text })
+        });
     
-    return data.summary;
+        const data = await response.json();
+    
+        if (!response.ok) {
+        throw new Error(data.error || "Unable to generate summary.");
+        }
+    
+        if (!data.summary) {
+            throw new Error("No summary was returned.");
+        }
+        
+        return data.summary;
+    }
+    catch (error) {
+        console.error("Summary request failed:", error)
+
+        throw error;
+    }
 }

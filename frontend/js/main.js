@@ -11,11 +11,20 @@ input.addEventListener('change', async (event) => {
     if (!file) return;
 
     const text = await extractText(file);
-    const summary = await getSummary(text);
 
     displayPDF(file);
 
-    summaryDiv.textContent = summary;
+    try{
+        summaryDiv.textContent = 'Loading...';
+
+        const summary = await getSummary(text);
+    
+        summaryDiv.textContent = summary;
+    }
+    catch (error) {
+        summaryDiv.textContent = error.message;
+    }
+
     clearBtn.style.display = 'inline-block'; 
 });
 

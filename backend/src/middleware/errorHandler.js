@@ -6,6 +6,8 @@ export const errorHandler = (err, req, res, next) => {
 
     res.status(statusCode).json({
         success: false,
-        message: err.message || "Internal Server Error"
+        error: statusCode >= 500
+            ? "Unable to generate the summary. Please try again."
+            : err.message
     });
 };
