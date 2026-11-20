@@ -9,8 +9,8 @@ export async function getSummary(text) {
     
         const data = await response.json();
     
-        if (!response.ok) {
-        throw new Error(data.error || "Unable to generate summary.");
+        if (!response.ok || !data.success) {
+            throw new Error(data.error || "Unable to generate summary.");
         }
     
         if (!data.summary) {

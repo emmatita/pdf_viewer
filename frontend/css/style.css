@@ -93,7 +93,6 @@ header p {
     font-size: 0.9rem;
     transition: background-color 0.2s ease;
 }
-
 #clearBtn:hover {
     background-color: #e5e1dc;
 }
@@ -122,7 +121,7 @@ header p {
    AI SUMMARY
 ========================= */
 
-#summaryOutput {
+.summarySection {
     max-width: 900px;
     min-height: 150px;
 
@@ -139,11 +138,8 @@ header p {
     color: var(--color-text);
     font-size: 1rem;
     line-height: 1.8;
-
-    white-space: pre-wrap;
 }
-
-#summaryOutput::before {
+.summarySection::before {
     content: "AI SUMMARY";
     display: block;
 
@@ -153,6 +149,30 @@ header p {
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 1.5px;
+}
+
+#summaryOutput {
+    white-space: pre-wrap;
+}
+
+#summarizeBtn {
+    display: block;
+    margin: 0 0 var(--spacing-sm) 0;
+
+    padding: 0.7rem 1.1rem;
+
+    background-color: var(--color-surface-secondary);
+    color: var(--color-text);
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+#summarizeBtn:hover {
+    background-color: #e5e1dc;
 }
 
 /* =========================
@@ -179,7 +199,7 @@ header p {
         height: 500px;
     }
 
-    #summaryOutput {
+    .summarySection {
         padding: var(--spacing-md);
     }
 }
